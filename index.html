@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" class="ml-3 mt-3"></div>
+    <button onclick="generar()" id="gen">Generar</button>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+
+<script>
+    const root = document.getElementById('root');
+    let  flag = true;
+
+    const generar = () =>{
+        document.getElementById('gen').style.display = "none";
+        root.innerHTML = 
+        "<h1 id='txtH1'>Aqui un h1</h1>"+
+        "<h4 id='txtH4'>Aqui un h4</h4>"+
+        "<input type='text' name='txtInput' id='txtInput'>"+
+        "<button id='btn' class='btn'>Cambiar color</button>"+"<input type='color' onchange='cambiarColor()' class='btn' id='color'>"+"<br>"+"<br>"+
+        "<button onclick='rojo()' class='btn btn-danger'>Rojo</button>"+
+        "<button onclick='verder()' class='btn btn-success'>Verde</button>"+
+        "<button onclick='azul()' class='btn btn-primary'>Azul</button>"+"<br>"+
+        "<button onclick='clases()' class='btn btn-primary mt-4'>Cambiar clases</button>";
+    }
+
+    const cambiarColor = () =>{
+        document.getElementById('txtInput').value = document.getElementById('color').value;
+        document.getElementById('txtH1').style.color = document.getElementById('color').value;
+        document.getElementById('txtH4').style.color = document.getElementById('color').value;
+        document.getElementById('btn').style.color = "#fff";
+        document.getElementById('btn').style.backgroundColor = document.getElementById('color').value;
+    }
+
+    const rojo = () => {
+        document.getElementById('txtH1').style.color = "#f00";
+        document.getElementById('txtH4').style.color = "#f00";
+        document.getElementById('btn').style.color = "#fff";
+        document.getElementById('btn').style.backgroundColor = "#f00";
+    }
+
+    const verder = () => {
+        document.getElementById('txtH1').style.color = "#0f0";
+        document.getElementById('txtH4').style.color = "#0f0";
+        document.getElementById('btn').style.color = "#000";
+        document.getElementById('btn').style.backgroundColor = "#0f0";
+    }
+
+    const azul = () => {
+        document.getElementById('txtH1').style.color = "#00f";
+        document.getElementById('txtH4').style.color = "#00f";
+        document.getElementById('btn').style.color = "#fff";
+        document.getElementById('btn').style.backgroundColor = "#00f";
+    }
+
+    const clases = () => {
+        if(flag){
+            flag = false;
+            document.getElementById('txtH1').classList.toggle("h2", "margin-top-2");
+            document.getElementById('txtH4').classList.toggle("h5", "margin-top-5");
+            document.getElementById('btn').classList.toggle("btn", "btn-outline-psecondary", "btn-lg");
+        }else{
+            flag = true;
+            document.getElementById('txtH1').classList.toggle(" ");
+            document.getElementById('txtH4').classList.toggle(" ");
+            document.getElementById('btn').classList.toggle(" ");
+        }
+    }
+</script>
+</html>
